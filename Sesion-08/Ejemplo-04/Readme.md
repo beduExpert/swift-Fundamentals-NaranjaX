@@ -1,39 +1,42 @@
+ 
 
 `Desarrollo Mobile` > `Swift Fundamentals`
+​	
+## Manejar el teclado
 
-## Arquitectura MVC
+### OBJETIVO 
 
-### OBJETIVO
+- Mejorar la experiencia del usuario cuando tiene que usar el teclado
 
-- Implementar la arquitectura Modelo Vista Controlador en nuestra app de Login.
-- 
-#### REQUISITOS
+#### REQUISITOS 
 
-1. Utilizar de base el proyecto *Reto-03*.
+1. Utilizar el proyecto del modulo, terminado hasta el Reto-02
 
 #### DESARROLLO
 
-1.- Crear un nuevo archivo de Swift, llamado `Modelos`.
-
-2.- En este archivo agregaremos un modelo o struct que definirá a nuestra cuenta de usuario.
-
-```
-struct Account {
-	let user: String
-	let pass: String
-}
-```
+1.- En la vista Login y también en la de Registro tenemos cuadros de texto. De forma predeterminada siempre que un objeto en la vista requiere la introducción de texto, el teclado aparece cuando el usuario selecciona ese objeto, esto nos puede causar problemas si el teclado cubre algun(os) objeto(s) en la pantalla:
 
 ![](1.png)
 
-3.- Agregar en el mismo archivo de Modelos, la definición de nuestra cuenta.
+
+
+**NOTA:** si el teclado no aparece en el simulador, puedes presionar las teclas `command + K` para mostrarlo y tener la perspectiva más real de como verá el usuario nuestra app.
+
+El teclado aparece automáticamente, sin embargo no desaparece a menos que ningun objeto se esté editando. El objeto view tiene un método que nos permite especificar si queremos terminar cualquier edición que se esté haciendo en los objetos colocados en ella.
+
+    view.endEditing(true)
+2.- El comportamiento normal esperado por todos los usuarios de smartphones es que cuando estas capturando algun texto, puedes tocar fuera del cuadro de texto para que el teclado desaparezca. Para implementar esto, necesitamos sobreescribir el siguiente método de la clase ViewController:
 
 ```
-struct Registered {
-  let user1: Account = Account(user: "Ricardo", pass: "Password")
+override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    self.view.endEditing(true)
 }
 ```
 
-4.- En la clase Viewcontroller agregaremos una instancia de este modelo.
+3.- Otro aspecto importante, es que el teclado que aparezca debe ser el adecuado según el tipo de dato que estamos esperando que el usuario introduzca. Esto lo podemos configurar en el Storyboard, usando el panel de inspección y la pestaña "attributes inspector". Ahí tenemos una sección llamada `Text Input Traits` donde podemos configurar las caracteristicas que necesitamos que estén habilitadas en el teclado. Por ejemplo, para el caso del cuadro de texto **username** necesitamos que el teclado sea "tipo E-mail address":
 
 ![](2.png)
+
+y para el cuadro de texto **password** por supuesto que no queremos que los caracteres capturados por el usuario sean visibles, así que habilitaremos la opción "Secure Text Entry":
+
+![](3.png)

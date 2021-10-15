@@ -2,29 +2,43 @@
 
 `Desarrollo Mobile` > `Swift Fundamentals`
 
-## Agregar función de Dismiss
+## Agregar funcionalidad a la vista Main
 
 ### OBJETIVO 
 
-- Agregar función de dismiss view desde un botón.
+- Completar la funcionalidad esperada en la nueva vista del proyecto
 
 #### REQUISITOS 
 
-1. Xcode y Ejemplo-01 funcionando.
+1. Xcode
+2. Proyecto del módulo con las instrucciones del Ejemplo-01 funcionando.
 
 #### DESARROLLO
 
-1.- Abrir el Ejemplo-01 y abrir el ViewController correspondiente al registro.
+1.- Abrir el ViewController correspondiente a la vista "main".
 
-2.- Agregar en el Boton de `Registrar` la acción de `dismiss view`.
+2.- Agregar en el Boton de  `logout` la funcionalidad "dismiss" (retirar un controller de la ventana)
+
+3.- Cambiar la imagen cuando la vista del ViewController está a punto de aparecer. Puedes utilizar la imagen predeterminada "person.fill"
 
 
 <details>
         <summary>Solución</summary>
 <p> Funcion dismiss: </p>
 
-	@IBAction func register(_ sender: Any) {
-    	dismiss(animated: true, completion: nil)
+	@IBAction func logout(_ sender: Any) {
+		dismiss(animated: true, completion: nil)
 	}
+
+<p> Cambio de imagen: </p>
+
+```
+ override func viewWillAppear(_ animated: Bool) {
+     super.viewWillAppear(animated)
+     imagen.image = UIImage(systemName: "person.fill")
+ }
+```
+
+
 
 </details>

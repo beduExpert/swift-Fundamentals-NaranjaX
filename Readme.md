@@ -1,6 +1,6 @@
 `Desarrollo Mobile` > `Swift Fundamentals`
 
-## Módulo: Swift Fundamentals Naranja X
+## Módulo: Swift Fundamentals
 
 Bienvenidos al curso de Programación en Swift.
 En este módulo aprenderemos los fundamentos básicos del lenguaje de programación Swift, así como del entorno de desarrollo de Apps en iOS.

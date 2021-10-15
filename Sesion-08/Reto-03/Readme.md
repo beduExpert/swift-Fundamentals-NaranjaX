@@ -1,35 +1,41 @@
+ 
 
 `Desarrollo Mobile` > `Swift Fundamentals`
+​	
+## Configurar correctamente el teclado 
 
-## Editando la Navegación de vistas
+### OBJETIVO 
 
-### OBJETIVO
+- Con lo aprendido en el ejemplo anterior, aplicar la configuración apropiada a todos los cuadros de texto en el app
 
-- Personalizar la barra de navegación en la app.
+#### REQUISITOS 
 
-#### REQUISITOS
-
-1. Utilizar de base Ejemplo-03.
+1. Utilizar el proyecto del modulo, terminado hasta el Ejemplo-04
 
 #### DESARROLLO
 
-1.- Con base en el proyecto del Ejemplo-03, editar el color de la barra de navegación.
+1.- En el ejemplo anterior, en el ViewController de la vista Login configuramos el teclado para ser de tipo "E-mail Address" para el caso del cuadro de texto **username**. Hacen falta un par de configuraciones más: 
 
-![](0.png)
+- Algo que es realmente molesto para los usuarios de Smartphone, es que el teléfono te corrija lo que escribes cuando estás poniendo una dirección de correo.
+- De forma predeterminada, los smartphones ponen en mayúscula la primera letra siempre que comenzamos a escribir en un campo de texto, pero esto no es necesario si estamos escribiendo una dirección de correo
 
-2.- Recrear la siguiente configuración:
+2.- En la vista de registro, también hacen falta estas configuraciones.
 
-![](1.png)
+3.- En la vista de registro, comprueba si el teclado no bloquea ningun objeto de la vista, de lo contrario, implementa la función que desaparece el teclado.
 
 <details>
         <summary>Solución</summary>
-<p>  Dentro de <strong>ViewController.swift</strong>, buscar la función <strong>viewDidLoad()</strong>, dentro de esta agregár el sig. código: </p>
+        <p>Los cuadros de texto *username* en ambas vistas, deben tener esta configuración:</p>
+![](1.png)
 
 ```
-self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-self.navigationController?.navigationBar.shadowImage = UIImage()
-self.navigationController?.navigationBar.isTranslucent = true
-self.navigationController!.view.backgroundColor = UIColor.clear
-self.navigationController?.navigationBar.backgroundColor = UIColor.clear
+<p>Para ocultar el teclado en la clase RegisterViewController.swift, agrega este método:</p>
+
+override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+   self.view.endEditing(true)
+}
 ```
+
+
+
 </details>

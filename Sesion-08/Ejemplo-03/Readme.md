@@ -1,49 +1,43 @@
 
 `Desarrollo Mobile` > `Swift Fundamentals`
 
-## Navegación de vistas
+## Arquitectura MVC
+
+### INTRODUCCIÓN
+
+Quizá te preguntes ¿**Por qué** utilizar **MVC**? La respuesta es simple: **Porque** es un patrón de diseño de software probado y se sabe que funciona. Con **MVC** la aplicación se puede desarrollar rápidamente, de forma modular y mantenible. Separar las funciones de la aplicación en modelos, vistas y controladores hace que la aplicación sea muy ligera. Por otra parte, es el patrón de diseño por defecto en Swift cuando utilizamos UIKit.  (se pueden usar otros patrones de diseño, con frameworks distintos)
 
 ### OBJETIVO
 
-- Como navegar entre vistas tanto en código como mediante el Storyboard.
-
+- Implementar la arquitectura Modelo Vista Controlador en nuestra app de Login.
 #### REQUISITOS
 
-1. Utilizar de base ejemplo-02.
+1. Utilizar de base el proyecto del módulo
+2. Xcode
 
 #### DESARROLLO
 
-1.- Cambiar el modo de navegación.
-A la vista de Login agregarle un `Embed In Navigation`.
+1.- Crear un nuevo archivo de Swift, llamado `Modelos`.
+
+2.- En este archivo agregaremos un modelo o struct que definirá a nuestra cuenta de usuario.
+
+```
+struct Account {
+	let user: String
+	let pass: String
+}
+```
 
 ![](1.png)
 
-2.- Seleccionar el `segue` (la flecha que conecta las vistas) de `push` que va a la vista de Registro y en el inspector seleccionar `Present Modally`.
-
-![](2.png)
-
-3.- Seleccionar la vista post login y agregar un Identifier.
-
-![](3.png)
-
-4.- Regresamos al ViewController.swift, se creará una función que permitirá mostrar la vista de post-login. Esta función deberá ser invocada en la condición donde tanto el password y usuario son correctos.
+3.- Agregar en el mismo archivo de Modelos, la definición de nuestra cuenta.
 
 ```
-  func goToMainViewController() {
-    let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "MainViewController") as? MainViewController
-    self.navigationController?.pushViewController(vc!, animated: true)
-  }
+struct Registered {
+  let user1: Account = Account(user: "ricardo@bedu.org", pass: "Password10")
+}
 ```
 
-La lógica de verificación de usuario sería:
+4.- En la clase Viewcontroller agrega una instancia de este modelo, la utilizaremos para validar el login en el siguiente reto.
 
-```
-@IBAction func login(_ sender: Any) {
-    if myUser == user.text && myPassword == password.text {
-      imageView.image = UIImage(named: "profile")
-      goToMainViewController()
-    } else {
-      imageView.image = UIImage(named: "user1")
-    }
-  }
-```
+    let model: Registered = Registered()

@@ -1,43 +1,39 @@
 
-`Desarrollo Mobile` > `Swift Fundamentals`
+Desarrollo Mobile` > `Swift Fundamentals`
 
-## Sesion-08: Elementos de interfaz de usuario UIKit 
+## Elementos de interfaz de usuario UIKit 
 
+### INTRODUCCIÓN
+
+UIKit proporciona una variedad de objetos que puedes utilizar para desarrollar aplicaciones para iOS. Estos objetos, como UIView y sus subclases, permiten mostrar e interactuar con el contenido de la aplicación. Las aplicaciones de UIKit normalmente utilizan el patrón de diseño Modelo-Vista-Controlador (MVC).
 
 ### OBJETIVOS 
 
-- En esta sesión se aplicarán los conceptos aprendidos de Swift, iOS y Xcode. Además de aprender la arquitectura Model-View-Controller.
+- Recapitulación de los elementos de UIKit más frecuentemente utilizados: Label, TextField, Button. Aprenderá a utilizar ImageView. Se revisará el tema de la conexión entre la vista y el controlador mediante IBOutles y IBActions.
+- Se analizarán las opciones disponibles para navegar entre dos vistas.
+- Aplicará la arquitectura Model-View-Controller.
 
-- Recapitulación de Optionals. Nil coalesing, optionals anidados.
-- Elementos de UI, TextFields, Switch, Buttons, Stepper, segmented control, imageView
-- Conexión entre IBOutles y IBActions.
 
 #### ORGANIZACION DE LA CLASE 
 
-- Conectando Storyboards con el editor de código.
+- IBOutlets, IBActions y UIImageView
+  - [Ejemplo 01](Ejemplo-01)
+  - [Reto 01](Reto-01)
 
-	- [Ejemplo, Esqueleto de una App.](Ejemplo-01)
-	- [Reto 01](Reto-01)
+- Navegación de vistas.
+  - [Ejemplo 02](Ejemplo-02)
 
-- Mas integración con IBOutlets y IBActions.
+- Arquitectura MVC.
+  - [Ejemplo 03](Ejemplo-03)
+  - [Reto 02](Reto-02)
 
-	- [Ejemplo. Agregando elementos y acciones.](Ejemplo-02)
-	- [Reto 02](Reto-02)
+- Manejar apropiadamente el teclado
 
--  Navegación de vistas.
+  - [Ejemplo 04](Ejemplo-04)
+  - [Reto 03](Reto-03)
 
-	- [Ejemplo. Navegación de vistas](Ejemplo-03)
-	- [Reto 03](Reto-03)
+  ​
 
--  Arquitectura MVC.
-
-	- [Ejemplo 04](Ejemplo-04)
-
-- Constraints y múltiples simuladores.
-
-	- [Ejemplo 05](Ejemplo-05)
-
-- Utilizando el Debugger, breakpoints.
 
 ### Postwork
 
